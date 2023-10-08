@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ExpensiveManager</string>
+    <string name="income">Income</string>
+    <string name="_0">0</string>
+    <string name="expenses">Expenses</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="transaction_history">Transaction History</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="add_expense">Add Expense</string>
+    <string name="amount">AMOUNT</string>
+    <string name="name">NAME</string>
+    <string name="Date">DATE</string>
+    <string name="done">DONE</string>
+    <string name="update_expenses">Update Expenses</string>
+    <string name="tue_22_apr_20023">01/01/20023</string>
+
+    <string-array name="PayFor">
+        <item>Bills</item>
+        <item>Credit</item>
+        <item>Travel</item>
+        <item>Service</item>
+        <item>Recharge</item>
+        <item>Games and Fun</item>
+        <item>Shopping</item>
+        <item>Money Transfer</item>
+    </string-array>
+</resources>

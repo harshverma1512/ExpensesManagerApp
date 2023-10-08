@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ExpensesManagerApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">@color/backgroundColor</item>
+    </style>
+
+    <style name="Theme.ExpensesManagerApp" parent="Base.Theme.ExpensesManagerApp" />
+</resources>
