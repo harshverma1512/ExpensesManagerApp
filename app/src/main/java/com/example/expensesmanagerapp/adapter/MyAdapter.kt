@@ -69,6 +69,7 @@ class MyAdapter(private val list: List<Expenses>, private val handler: CallBack)
                 holder.amount.setTextColor(Color.RED)
             }
 
+
             "Shopping" -> {
                 holder.image.setImageResource(R.drawable.shopping)
                 holder.amount.setTextColor(Color.RED)
