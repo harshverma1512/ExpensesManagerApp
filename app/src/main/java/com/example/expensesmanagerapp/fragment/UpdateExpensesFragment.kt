@@ -12,9 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.expensesmanagerapp.adapter.MyAdapter
 import com.example.expensesmanagerapp.databinding.UpdateFragmentBinding
-import com.example.expensesmanagerapp.model.dtos.Expenses
 import com.example.expensesmanagerapp.viewmodel.MyViewModel
 import com.example.expensesmanagerapp.viewmodel.ViewModelFactory
 import java.text.SimpleDateFormat
@@ -22,14 +20,11 @@ import java.util.Calendar
 import java.util.Locale
 
 
-class UpdateExpensesFragment : Fragment(), MyAdapter.CallBack {
+class UpdateExpensesFragment : Fragment() {
 
     private lateinit var binding: UpdateFragmentBinding
-    lateinit var amount: String
-    lateinit var date: String
-    private var dataId: Int = 0
     private lateinit var viewModel: MyViewModel
-    lateinit var payFor: String
+    private lateinit var payFor: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,7 +33,13 @@ class UpdateExpensesFragment : Fragment(), MyAdapter.CallBack {
     ): View {
         return UpdateFragmentBinding.inflate(inflater, container, false).run {
             binding = this
+            binding.amount.setText(arguments?.getString("Amount"))
+            binding.date.text = arguments?.getString("date")
+            // val id =
+            payFor = arguments?.getString("payFor").toString()
+
             root
+
         }
     }
 
@@ -107,14 +108,10 @@ class UpdateExpensesFragment : Fragment(), MyAdapter.CallBack {
         } else if (date?.isEmpty() == true) {
             binding.date.error = "Enter the Date"
         } else {
-            viewModel.updateData(dataId, amount.toString(), date.toString(), payFor)
+            arguments?.getInt("ID")
+                ?.let { viewModel.updateData(it,amount.toString(), date.toString(), payFor) }
+            Toast.makeText(requireContext(), "Update SuccessFully", Toast.LENGTH_LONG).show()
+            findNavController().popBackStack()
         }
-        Toast.makeText(requireContext(), "Update SuccessFully", Toast.LENGTH_LONG).show()
-        findNavController().popBackStack()
-    }
-
-    override fun getTransactionData(data: List<Expenses>) {
-        binding.amount.setText(data[0].amount)
-        binding.date.text = data[0].date
     }
 }
