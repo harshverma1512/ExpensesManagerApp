@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -21,7 +22,7 @@ import java.util.Locale
 
 class HomeFragment : Fragment() {
 
-    lateinit var binding: HomeFragmentBinding
+    private lateinit var binding: HomeFragmentBinding
     private lateinit var adapter: MyAdapter
     private lateinit var viewModel: MyViewModel
 
@@ -54,7 +55,6 @@ class HomeFragment : Fragment() {
             ViewModelFactory(requireActivity().application)
         )[MyViewModel::class.java]
 
-
         binding.Greeting.text = getGreeting()
 
         binding.recycleView.setHasFixedSize(true)
@@ -85,7 +85,6 @@ class HomeFragment : Fragment() {
             binding.recycleView.adapter = adapter
         }
     }
-
     private fun getGreeting(): String {
         val currentTime = Calendar.getInstance().time
         return when (SimpleDateFormat("HH", Locale.getDefault()).format(currentTime).toInt()) {

@@ -2,6 +2,7 @@ package com.example.expensesmanagerapp.adapter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
@@ -38,8 +39,12 @@ class MyAdapter(private val list: List<Expenses>, private val handler: CallBack)
         holder.payFor.text = list[position].expenses
 
         holder.itemView.setOnClickListener {
-            it.findNavController()
-                .navigate(R.id.updateExpensesFragment)
+            val bundle = Bundle()
+            bundle.putString("Amount",list[position].amount)
+            bundle.putString("date",list[position].date)
+            bundle.putInt("ID",list[position].id)
+            bundle.putString("payFor",list[position].expenses)
+            it.findNavController().navigate(R.id.updateExpensesFragment,bundle)
             handler.getTransactionData(list)
         }
 
@@ -68,6 +73,7 @@ class MyAdapter(private val list: List<Expenses>, private val handler: CallBack)
                 holder.image.setImageResource(R.drawable.gas)
                 holder.amount.setTextColor(Color.RED)
             }
+
 
             "Shopping" -> {
                 holder.image.setImageResource(R.drawable.shopping)

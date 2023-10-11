@@ -108,8 +108,8 @@ class ExpensesFragment : Fragment() {
                     date = date.toString()
                 )
             )
+            Toast.makeText(requireContext(), "Entry SuccessFully", Toast.LENGTH_LONG).show()
+            findNavController().popBackStack()
         }
-        Toast.makeText(requireContext(), "Entry SuccessFully", Toast.LENGTH_LONG).show()
-        findNavController().popBackStack()
     }
 }
