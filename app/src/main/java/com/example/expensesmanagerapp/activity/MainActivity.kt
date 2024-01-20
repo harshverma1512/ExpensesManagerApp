@@ -1,4 +1,4 @@
-package com.example.expensesmanagerapp
+package com.example.expensesmanagerapp.activity
 
 import android.content.pm.PackageManager
 import android.os.Build
@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.expensesmanagerapp.databinding.ActivityMainBinding
-import com.example.expensesmanagerapp.fragment.HomeFragment
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.expensesmanagerapp
+package com.example.expensesmanagerapp.services
 
 import android.Manifest
 import android.app.Notification

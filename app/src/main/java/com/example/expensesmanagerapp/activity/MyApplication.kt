@@ -1,4 +1,4 @@
-package com.example.expensesmanagerapp
+package com.example.expensesmanagerapp.activity
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -6,6 +6,7 @@ import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import com.example.expensesmanagerapp.services.AppNotificationService
 import java.util.concurrent.TimeUnit
 
 class MyApplication : Application() {
