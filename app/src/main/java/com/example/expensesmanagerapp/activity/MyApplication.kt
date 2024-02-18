@@ -6,6 +6,7 @@ import androidx.work.Constraints
 import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import com.example.expensesmanagerapp.helpers.AppPreferences
 import com.example.expensesmanagerapp.services.AppNotificationService
 import java.util.concurrent.TimeUnit
 
@@ -13,6 +14,7 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
+         AppPreferences.instance.saveSharedPreference(applicationContext)
         setupWorker()
     }
 

@@ -176,7 +176,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="5dp"
-            android:text="Hars Verma"
             android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="@color/white"

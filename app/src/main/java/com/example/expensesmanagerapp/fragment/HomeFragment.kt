@@ -13,6 +13,7 @@ import com.example.expensesmanagerapp.R
 import com.example.expensesmanagerapp.adapter.MyAdapter
 import com.example.expensesmanagerapp.adapter.MyAdapter.CallBack
 import com.example.expensesmanagerapp.databinding.HomeFragmentBinding
+import com.example.expensesmanagerapp.helpers.AppPreferences
 import com.example.expensesmanagerapp.model.dtos.Expenses
 import com.example.expensesmanagerapp.viewmodel.MyViewModel
 import com.example.expensesmanagerapp.viewmodel.ViewModelFactory
@@ -25,6 +26,7 @@ class HomeFragment : Fragment() {
     private lateinit var binding: HomeFragmentBinding
     private lateinit var adapter: MyAdapter
     private lateinit var viewModel: MyViewModel
+    private val appPreferences : AppPreferences = AppPreferences()
 
 
     override fun onCreateView(
@@ -41,6 +43,12 @@ class HomeFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if (!appPreferences.getUserName().isNullOrEmpty()) {
+            binding.name.text = appPreferences.getUserName()
+        }else{
+            binding.name.text = this.getString(R.string.guest)
+        }
 
         binding.create.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_expensesFragment)
@@ -88,9 +96,9 @@ class HomeFragment : Fragment() {
     private fun getGreeting(): String {
         val currentTime = Calendar.getInstance().time
         return when (SimpleDateFormat("HH", Locale.getDefault()).format(currentTime).toInt()) {
-            in 0..11 -> "Good morning,"
-            in 12..16 -> "Good afternoon,"
-            else -> "Good evening,"
+            in 0..11 -> getString(R.string.good_morning)
+            in 12..16 -> getString(R.string.good_afternoon)
+            else -> getString(R.string.good_evening)
         }
     }
 }

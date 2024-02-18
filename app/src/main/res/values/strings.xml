@@ -10,7 +10,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
+    <string name="good_morning">Good Morning</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="good_afternoon">Good afternoon</string>
+    <string name="guest">Guest</string>
     <string name="add_expense">Add Expense</string>
     <string name="amount">AMOUNT</string>
     <string name="name">NAME</string>
