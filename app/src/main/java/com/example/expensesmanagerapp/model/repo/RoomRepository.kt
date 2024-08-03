@@ -3,8 +3,11 @@ package com.example.expensesmanagerapp.model.repo
 import androidx.lifecycle.LiveData
 import com.example.expensesmanagerapp.model.dtos.Expenses
 import com.example.expensesmanagerapp.model.roomDB.ExpensesDao
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class RoomRepository(private val expensesDao: ExpensesDao) {
+@Singleton
+class RoomRepository @Inject constructor(private val expensesDao: ExpensesDao) {
 
     val repoLiveData: LiveData<List<Expenses>> = expensesDao.getExpenses()
     val amountLiveData: LiveData<String> = expensesDao.getTotalAmount()

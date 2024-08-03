@@ -4,12 +4,12 @@ import android.content.Context
 import android.content.SharedPreferences
 class AppPreferences{
 
-    private lateinit var sharedPreferences : SharedPreferences
-    private lateinit var editor : SharedPreferences.Editor
+    private var sharedPreferences : SharedPreferences?= null
+    private var editor : SharedPreferences.Editor?= null
 
     fun saveSharedPreference(context: Context){
         sharedPreferences = context.getSharedPreferences("ExpensesManager",Context.MODE_PRIVATE)
-        editor = sharedPreferences.edit()
+        editor = sharedPreferences?.edit()
     }
 
     companion object {
@@ -19,19 +19,19 @@ class AppPreferences{
     }
 
     fun setUserName(name : String){
-       editor.putString(User_Name,name)
-        editor.apply()
+       editor?.putString(User_Name,name)
+        editor?.apply()
     }
 
     fun setFirstTimeUser(isFirstTime : Boolean){
-        editor.putBoolean(isFirstTime.toString(),false)
-        editor.apply()
+        editor?.putBoolean(isFirstTime.toString(),false)
+        editor?.apply()
     }
 
-    fun getFirstTimeUser() : Boolean{
-        return sharedPreferences.getBoolean(First_Time_User.toString(),false)
+    fun getFirstTimeUser() : Boolean? {
+        return sharedPreferences?.getBoolean(First_Time_User.toString(),false)
     }
     fun getUserName() : String? {
-    return  sharedPreferences.getString(User_Name,"")
+    return  sharedPreferences?.getString(User_Name,"")
     }
 }

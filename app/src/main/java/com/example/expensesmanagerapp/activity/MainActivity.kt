@@ -9,8 +9,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.expensesmanagerapp.databinding.ActivityMainBinding
 import com.example.expensesmanagerapp.helpers.AppPreferences
+import dagger.hilt.android.AndroidEntryPoint
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var appPreferences : AppPreferences

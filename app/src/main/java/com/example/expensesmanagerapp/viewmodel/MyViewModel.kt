@@ -7,10 +7,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.expensesmanagerapp.model.dtos.Expenses
 import com.example.expensesmanagerapp.model.repo.RoomRepository
 import com.example.expensesmanagerapp.model.roomDB.ApplicationDatabase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MyViewModel(applicationContext: Application) : ViewModel() {
+@HiltViewModel
+class MyViewModel @Inject constructor(applicationContext: Application) : ViewModel() {
 
     val readAllData: LiveData<List<Expenses>>
     private val repository: RoomRepository
@@ -20,7 +23,7 @@ class MyViewModel(applicationContext: Application) : ViewModel() {
 
     init {
         val useDao =
-            ApplicationDatabase.getDatabase(applicationContext.applicationContext).expensesDAO()
+            ApplicationDatabase.DataBaseModule.getDatabase(applicationContext.applicationContext).expensesDAO()
         repository = RoomRepository(useDao)
         readAllData = repository.repoLiveData
         amountLiveData = repository.amountLiveData

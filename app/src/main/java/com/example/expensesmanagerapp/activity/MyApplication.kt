@@ -7,9 +7,9 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.example.expensesmanagerapp.helpers.AppPreferences
-import com.example.expensesmanagerapp.services.AppNotificationService
+import com.example.expensesmanagerapp.services.AppNotificationService import dagger.hilt.android.HiltAndroidApp
 import java.util.concurrent.TimeUnit
-
+@HiltAndroidApp
 class MyApplication : Application() {
 
     override fun onCreate() {
